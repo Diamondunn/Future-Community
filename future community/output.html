@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>未来社区</title>
+    <script type="text/javascript">
+      function showBody() {
+        //显示不同年龄段以及性别的人体函数
+        var male = sessionStorage.getItem("male"); //获得会话中“male”属性对应的属性值，存入定义的male字符串变量中
+        var m = male.split("."); //用小数点分隔该字符串，可获得m[0]和m[1]，m[0]存放整数部分，m[1]存放小数部分
+        var female = sessionStorage.getItem("female");
+        var f = female.split(".");
+        var age = sessionStorage.getItem("age");
+
+        var sex; //定义sex字符串，在判断后获得对应的要显示的性别，以便后续连接字符串并显示图片使用
+        var age_phase;
+
+        if (parseInt(m[0]) > parseInt(f[0])) {
+          //通过比较人数获得要显示性别
+          sex = "male";
+        } else if (parseInt(m[0]) == parseInt(f[0])) {
+          if (parseInt(m[1]) > parseInt(f[1])) {
+            sex = "male";
+          } else {
+            sex = "female";
+          }
+        } else {
+          sex = "female";
+        }
+
+        if (parseInt(age) < 40) {
+          //通过比较人数获得要显示年龄段
+          age_phase = "young";
+        } else if (parseInt(age) < 65) {
+          age_phase = "middle";
+        } else {
+          age_phase = "old";
+        }
+
+        //将<img>标签中所要用到字符串连接，通过document.write()方法显示在屏幕上
+        //<img>标签中字符串《./personality/ + age_phase + '_' + sex + .PNG》连接得到图片位置，其实质为‘./personality/middle_female.png’
+        //style中存储图片的展示形式，width表示宽度，z—index表示图片所处层数，数字越小越处于底层，最小为1
+
+        var src =
+          '<img src="./personality/' +
+          age_phase +
+          "_" +
+          sex +
+          '.PNG" style="position:absolute;top:30px;width: 1000px;z-index: 10;"/>';
+        document.write(src);
+      }
+
+
+      function q1() {
+        var q1 = sessionStorage.getItem("q1"); //存储图片名（不带后缀）
+        if (q1 == "60分") {
+          q1 = "60";
+        } else if (q1 == "70分") {
+          q1 = "70";
+        } else if (q1 == "80分") {
+          q1 = "80";
+        } else if (q1 == "90分") {
+          q1 = "90";
+        } else {
+          q1 = "100";
+        }
+
+        var src =
+          '<img src="./education/' +
+          q1 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index: 9;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+
+
+      function q2(){
+		 var q2 = sessionStorage.getItem("q2");//存储图片名（不带后缀）
+         if (q2 == "60分") {
+          q2 = "60";
+        } else if (q2 == "70分") {
+          q2 = "70";
+        } else if (q2 == "80分") {
+          q2 = "80";
+        } else if (q2 == "90分") {
+          q2 = "90";
+        } else {
+          q2 = "100";
+         }
+  
+        var src =
+          '<img src="./business/' +
+          q2 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index: 9;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+          /*var src = '<img src="./business/' + q2 + '.PNG" style="position:absolute;top:5px;width: 1000px;z-index: 9;"/>' //把showBody()函数中的z-index改成2
+          document.write(src);
+         }*/
+
+
+
+      function q3() {
+        var q3 = sessionStorage.getItem("q3"); //存储图片名（不带后缀）
+        if (q3 == "60分") {
+          q3 = "60";
+        } else if (q3 == "70分") {
+          q3 = "70";
+        } else if (q3 == "80分") {
+          q3 = "80";
+        } else if (q3 == "90分") {
+          q3 = "90";
+        } else {
+          q3 = "100";
+        }
+
+        var src =
+          '<img src="./govern/' +
+          q3 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function q4() {
+        var q4 = sessionStorage.getItem("q4"); //存储图片名（不带后缀）
+        if (q4 == "60分") {
+          q4 = "60";
+        } else if (q4 == "70分") {
+          q4 = "70";
+        } else if (q4 == "80分") {
+          q4 = "80";
+        } else if (q4 == "90分") {
+          q4 = "90";
+        } else {
+          q4 = "100";
+        }
+
+        var src =
+          '<img src="./health/' +
+          q4 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+
+
+      function q5() {
+        var q5 = sessionStorage.getItem("q5"); //存储图片名（不带后缀）
+        if (q5 == "60分") {
+          q5 = "60";
+        } else if (q5 == "70分") {
+          q5 = "70";
+        } else if (q5 == "80分") {
+          q5 = "80";
+        } else if (q5 == "90分") {
+          q5 = "90";
+        } else {
+          q5 = "100";
+        }
+
+        var src =
+          '<img src="./low_carbon/' +
+          q5 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function q6() {
+        var q6 = sessionStorage.getItem("q6"); //存储图片名（不带后缀）
+        if (q6 == "60分") {
+          q6 = "60";
+        } else if (q6 == "70分") {
+          q6 = "70";
+        } else if (q6 == "80分") {
+          q6 = "80";
+        } else if (q6 == "90分") {
+          q6 = "90";
+        } else {
+          q6 = "100";
+        }
+
+        var src =
+          '<img src="./neighbor/' +
+          q6 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function q7() {
+        var q7 = sessionStorage.getItem("q7"); //存储图片名（不带后缀）
+        if (q7 == "60分") {
+          q7 = "60";
+        } else if (q7 == "70分") {
+          q7 = "70";
+        } else if (q7 == "80分") {
+          q7 = "80";
+        } else if (q7 == "90分") {
+          q7 = "90";
+        } else {
+          q7 = "100";
+        }
+
+        var src =
+          '<img src="./service/' +
+          q7 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function q8() {
+        var q8 = sessionStorage.getItem("q8"); //存储图片名（不带后缀）
+        if (q8 == "60分") {
+          q8 = "60";
+        } else if (q8 == "70分") {
+          q8 = "70";
+        } else if (q8 == "80分") {
+          q8 = "80";
+        } else if (q8 == "90分") {
+          q8 = "90";
+        } else {
+          q8 = "100";
+        }
+
+        var src =
+          '<img src="./transportation/' +
+          q8 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function q9() {
+        var q9 = sessionStorage.getItem("q9"); //存储图片名（不带后缀）
+        if (q9 == "60分") {
+          q9 = "60";
+        } else if (q9 == "70分") {
+          q9 = "70";
+        } else if (q9 == "80分") {
+          q9 = "80";
+        } else if (q9 == "90分") {
+          q9 = "90";
+        } else {
+          q9 = "100";
+        }
+
+        var src =
+          '<img src="./Building/' +
+          q9 +
+          '.png" style="position:absolute;top:30px;width: 1000px;z-index:9 ;"/>'; //把showBody()函数中的z-index改成2
+        document.write(src);
+      }
+
+      function showBackgroud() {
+       /* var sum = 0;
+
+        for (var i = 1; i <= 9; i++) {
+          var q = sessionStorage.getItem("q" + i);
+
+          if (q == "一般") {
+            sum += 1;
+          } else if (q == "良好") {
+            sum += 2;
+          } else {
+            sum += 3;
+          }
+        }
+
+        var background;
+        if (sum > 21) {
+          background = "blue";
+        } else if (sum >= 15) {
+          background = "green";
+        } else {
+          background = "yellow";
+        }*/
+
+        var src2 =
+          '<img src="./background/' +
+          'background' +
+          '.png" style="positon:absolute;top: 30px;width:1000px;z-index: 1;"/>';
+        document.write(src2);
+      }
+
+      function show() {
+        document.write(
+          '<button type="button" class="layui-btn" onclick="javascript:location.reload()">刷新</button><br>'
+        );
+        showBody();
+        q1();
+        q2();
+        q3();
+        q4();
+        q5();
+        q6();
+        q7();
+        q8();
+        q9();
+        showBackgroud();
+      }
+    </script>
+
+<link rel="stylesheet" href="layui/css/layui.css">
+  </head>
+
+  <body onload="show()">
+	<button type="button" class="layui-btn" onclick="javascript:location.reload()">刷新</button><br>
+
+  </body>
+ 
+
+</html>

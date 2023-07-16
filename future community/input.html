@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>未来社区</title>
+
+
+    <script type="text/javascript">
+        //定义一个名为“male”（等号前的male）类型的字符串变量
+        //通过sessionStorage.getItem("male")方法获得原先存储在的session中的《male》属性（等号后括号中的male）对应的属性值
+        //其中“male”和《male》的意思与作用区域不同，
+        //“male”是自定义的存储属性值的变量名
+        //《male》则为存储在session会话中可在不同.html页面中调用或设置的属性名
+        //在使用使，更改“male”为所需要的调用的字符串变量名，并通过sessionStorage.getItem()方法获得对应的属性的属性值
+        var male=sessionStorage.getItem("male");
+        var female=sessionStorage.getItem("female");
+        var age=sessionStorage.getItem("age");
+        /*
+        var education=sessionStorage.getItem("q1");
+        var business=sessionStorage.getItem("q2");
+        var govern=sessionStorage.getItem("q3");
+        var health=sessionStorage.getItem("q4");
+        var low_carbon=sessionStorage.getItem("q5");
+        var neighbor=sessionStorage.getItem("q6");
+        var service=sessionStorage.getItem("q7");
+        var transportation=sessionStorage.getItem("q8");
+        var building=sessionStorage.getItem("q9");*/
+    
+        function load(){
+        //load函数是在加载页面中时，将原先已经存储在会话中的某属性对应的属性值放在id名已经设置好了的文本框中显示
+        //id在<input>中设置，每一个文本框有自己特有的id
+            document.getElementById("male").value=male;
+            document.getElementById("female").value=female;
+            document.getElementById("age").value=age;
+            /*
+            var select = document.getElementById("education");
+            for (var i = 0; i <select.option.length; i++) {
+                if(select.options[i].value == education){
+                    select.options[i].selected = true;
+                    break;
+                }
+            }*/
+        }
+    
+        function storeMale(form){
+            //storeMale函数，存储文本框中输入的某属性的值
+            male = form.sexmale.value;//form是指storeMale(form)中的form，sexmale为表单中name="sexmale"的文本框，‘.value’意为获取该文本框中输入的值
+            sessionStorage.setItem("male",male);//与sessionStorage.setItem()类似，意为将上述从文本框中获得的值male存入对应的属性
+        }
+        function storeFemale(form){//与storeMale函数作用相同，后面的store函数均为类似意思
+            female = form.sexfemale.value;
+            sessionStorage.setItem("female",female);
+        }
+        function storeAge(form){
+            age = form.average_age.value;
+            sessionStorage.setItem("age",age);  
+        }
+        
+        function storeEducation(form){
+            var myselect = document.getElementById("education")
+            var index = myselect.selectedIndex;
+            education = myselect.options[index].value;
+            sessionStorage.setItem("q1",education);
+        }
+        
+        function storeBusiness(form){
+            var myselect = document.getElementById("business")
+            var index = myselect.selectedIndex;
+            business = myselect.options[index].value;
+            sessionStorage.setItem("q2",business);  
+        }
+        
+        function storeGovern(form){
+            var myselect = document.getElementById("govern")
+            var index = myselect.selectedIndex;
+            govern = myselect.options[index].value;
+            sessionStorage.setItem("q3",govern);  
+        }
+    
+                function storeHealth(form){
+            var myselect = document.getElementById("health")
+            var index = myselect.selectedIndex;
+            health = myselect.options[index].value;
+            sessionStorage.setItem("q4",health);  
+        }
+        
+        function storeLow_carbon(form){
+            var myselect = document.getElementById("low_carbon")
+            var index = myselect.selectedIndex;
+            low_carbon = myselect.options[index].value;
+            sessionStorage.setItem("q5",low_carbon);  
+        }
+    
+        function storeNeighbor(form){
+            var myselect = document.getElementById("neighbor")
+            var index = myselect.selectedIndex;
+            neighbor = myselect.options[index].value;
+            sessionStorage.setItem("q6",neighbor);  
+        }
+        
+        function storeService(form){
+            var myselect = document.getElementById("service")
+            var index = myselect.selectedIndex;
+            service= myselect.options[index].value;
+            sessionStorage.setItem("q7",service);  
+        }
+        
+        function storeTransportation(form){
+            var myselect = document.getElementById("transportation")
+            var index = myselect.selectedIndex;
+            transportation = myselect.options[index].value;
+            sessionStorage.setItem("q8",transportation);  
+        }
+        
+        function storeBuilding(form){
+            var myselect = document.getElementById("Building")
+            var index = myselect.selectedIndex;
+            building = myselect.options[index].value;
+            sessionStorage.setItem("q9",building);  
+        }
+    
+    </script>
+</head>
+<body onload="load()">
+	<form  class="register">
+		<h1>未来社区
+			<span>定制你的未来社区</span>
+		</h1>
+
+		<label>
+			<span>占比 :</span>
+			<input id="male" type="text" name="sexmale" placeholder="男性"  onblur="storeMale(this.form)" style="width: 50px;"/>/
+            <input id="female" type="text" name="sexfemale"   onblur="storeFemale(this.form)" placeholder="女性" style="width: 50px;"/>
+		</label>
+
+        
+		<label>
+			<span>平均年龄:</span>
+			<input id="age" type="text" name="average_age" placeholder="请输入"  onblur="storeAge(this.form)"/>
+        
+		</label>
+
+
+		<label>
+			<span>打造未来教育场景:</span><select name="selection" id="education" onblur="storeEducation(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来创业场景:</span><select name="selection" id="business" onblur="storeBusiness(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来治理场景:</span><select name="selection" id="govern" onblur="storeGovern(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来健康场景:</span><select name="selection"  id="health" onblur="storeHealth(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来低碳场景:</span><select name="selection" id="low_carbon" onblur="storeLow_carbon(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来邻里场景:</span><select name="selection" id="neighbor" onblur="storeNeighbor(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来服务场景:</span><select name="selection" id="service" onblur="storeService(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来交通场景:</span><select name="selection" id="transportation" onblur="storeTransportation(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>
+			</select>
+		</label>
+        <label>
+			<span>打造未来建筑场景:</span><select name="selection" id="building" onblur="storeBuilding(this.form)">
+            <option>60分</option>
+			<option>70分</option>
+			<option>80分</option>
+			<option>90分</option>
+			<option>100分</option>>
+			</select>
+		</label>
+		<!-- <label>
+			<span>&nbsp;</span>
+			<input type="button" class="button" value="确认信息" />
+		</label> -->
+	</form>
+	<script>
+		function changeStyle() {
+            var template = document.getElementById("template");
+            var index = template.selectedIndex;
+            var templatevalue = template.options[index].value;
+        }
+    </script>
+    <style>
+        .register {
+            margin-left:auto;
+            margin-right:auto;
+            max-width: 500px;
+            background: #FFF;
+            padding: 20px 30px 20px 30px;
+            font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: black;
+            text-shadow: 1px 1px 1px #FFF;
+            border:1px solid #DDD;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+        }
+        .register h1 {
+            font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 0px 0px 10px 40px;
+            display: block;
+            border-bottom: 1px solid #DADADA;
+            margin: -10px -30px 30px -30px;
+            color: #888;
+        }
+        .register h1>span {
+            display: block;
+            font-size: 11px;
+        }
+        .register label {
+            display: block;
+            margin: 0px 0px 5px;
+        }
+        .register label>span {
+            float: left;
+            width: 20%;
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            color: #333;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+        .register input[type="text"], .register input[type="email"], .register textarea, .register select{
+            border: 1px solid #CCC;
+            color: #888;
+            height: 20px;
+            line-height:15px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            outline: 0 none;
+            padding: 5px 0px 5px 5px;
+            width: 70%;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .register select {
+            background: #FFF url('down-arrow.png') no-repeat right;
+            background: #FFF url('down-arrow.png') no-repeat right;
+            appearance:none;
+            -webkit-appearance:none;
+            -moz-appearance: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            width: 70%;
+            height: 35px;
+            line-height:15px;
+        }
+        .register textarea{
+            height:100px;
+            padding: 5px 0px 0px 5px;
+            width: 70%;
+        }
+        .register .button {
+            background: #FFF;
+            border: 1px solid #CCC;
+            padding: 10px 25px 10px 25px;
+            color: #333;
+            border-radius: 4px;
+        }
+        .register .button:hover {
+            color: #333;
+            background-color: #EBEBEB;
+            border-color: #ADADAD;
+        }
+    </style>
+</body>
+
+
+</html>
